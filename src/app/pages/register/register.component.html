@@ -32,15 +32,15 @@
         </div>
         <div class="card-body px-lg-5 py-lg-5">
           <div class="text-center text-muted mb-4">
-            <small>Ou use suas credenciais</small>
+            <small>Ou insira novas credenciais</small>
           </div>
-          <form role="form">
+          <form role="form" (ngSubmit)="register(user)">
             <div class="form-group">
               <div class="input-group input-group-alternative mb-3">
                 <div class="input-group-prepend">
                   <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
                 </div>
-                <input class="form-control" placeholder="Nome" type="text">
+                <input class="form-control" placeholder="Nome" type="text" [(ngModel)]="user.nome" name="nome">
               </div>
             </div>
             <div class="form-group">
@@ -48,15 +48,39 @@
                 <div class="input-group-prepend">
                   <span class="input-group-text"><i class="ni ni-email-83"></i></span>
                 </div>
-                <input class="form-control" placeholder="Email" type="email">
+                <input class="form-control" placeholder="Email" type="email" [(ngModel)]="user.email" name="email">
               </div>
             </div>
+            <div class="form-group">
+              <div class="input-group input-group-alternative mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="ni ni-email-83"></i></span>
+                </div>
+                <input class="form-control" placeholder="Data de Nascimento" type="date" [(ngModel)]="user.dataNascimento" name="dataNascimento">
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="input-group input-group-alternative">
+             
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
+                  </div>
+                  <select class="form-control" [(ngModel)]="user.genero" name="genero">
+                    <option value="" selected >Selecione o gênero</option>
+                    <option value="feminino">Feminino</option>
+                    <option value="masculino">Masculino</option>
+                    <option value="naoBinario">Não Binário</option>
+                    <option value="outro">Outro / Prefiro não declarar</option>
+                  </select>
+                              
+              </div>
+            </div>       
             <div class="form-group">
               <div class="input-group input-group-alternative">
                 <div class="input-group-prepend">
                   <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
                 </div>
-                <input class="form-control" placeholder="Senha" type="password">
+                <input class="form-control" placeholder="Senha" type="password" [(ngModel)]="user.password" name="password">
               </div>
             </div>
             <div class="row my-4">
@@ -70,7 +94,7 @@
               </div>
             </div>
             <div class="text-center">
-              <button type="button" class="btn btn-primary mt-4">Criar cadastro</button>
+              <button type="submit" class="btn btn-primary mt-4">Criar cadastro</button>
             </div>
           </form>
         </div>

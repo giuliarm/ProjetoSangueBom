@@ -1,4 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/authService';
 
 @Component({
@@ -10,7 +11,7 @@ export class LoginComponent implements OnInit, OnDestroy {
   email: string = '';
   password: string = '';
 
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService, private router: Router) {}
 
   ngOnInit() {}
 
@@ -18,7 +19,7 @@ export class LoginComponent implements OnInit, OnDestroy {
 
   loginWithGoogle() {
     this.authService.loginWithGoogle().then(user => {
-   
+      this.router.navigate(['/home']); 
     }).catch(error => {
       console.error('Erro ao fazer login com o Google:', error);
     });
@@ -26,7 +27,6 @@ export class LoginComponent implements OnInit, OnDestroy {
 
   loginWithEmail() {
     this.authService.loginWithEmail(this.email, this.password).then(user => {
-      // Aqui você pode redirecionar o usuário para a próxima página ou realizar outras operações necessárias
     }).catch(error => {
       console.error('Erro ao fazer login com email e senha:', error);
     });

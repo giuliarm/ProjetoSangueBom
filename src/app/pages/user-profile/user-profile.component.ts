@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { UserData } from 'src/app/components/models/userModel';
+import { DataService } from 'src/app/services/dataService';
 
 @Component({
   selector: 'app-user-profile',
@@ -7,9 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserProfileComponent implements OnInit {
 
-  constructor() { }
+  user: UserData;
 
-  ngOnInit() {
+  constructor(private dataService: DataService) { }
+
+  async ngOnInit() {
+    await this.getUserInfo();
   }
 
+  async getUserInfo(): Promise<void> {
+    let userId = localStorage.getItem("userID");
+    this.user = await this.dataService.GetUserData(userId);
+  }
+  
 }
+

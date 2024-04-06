@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/authService';
 
 interface RouteInfo {
   path: string;
@@ -28,7 +29,7 @@ export class SidebarComponent implements OnInit {
   isCollapsed = true;
   logged = false;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private authService : AuthService) { }
 
   ngOnInit(): void {
     this.GetUserLogged();
@@ -50,5 +51,11 @@ export class SidebarComponent implements OnInit {
   GetUserLogged(): void {
     const userID = localStorage.getItem("userID");
     this.logged = userID !== null;
+  }
+
+  logout() {
+    this.authService.logout().then().catch(error => {
+      console.error('Erro ao fazer logout', error);
+    });
   }
 }
