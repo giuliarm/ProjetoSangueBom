@@ -1,0 +1,216 @@
+<div class="header bg-gradient-danger pb-8 pt-5 pt-md-8">
+  <div class="container-fluid">
+    <div class="header-body">
+      <!-- Card stats -->
+      <div class="row">
+        <div class="col-xl-3 col-lg-6">
+          <div class="card card-stats mb-4 mb-xl-0">
+            <div class="card-body">
+              <div class="row">
+                <div class="col">
+                  <h5 class="card-title text-uppercase text-muted mb-0">Você Sabia?</h5>
+                </div>
+                <div class="col-auto">
+                  <div class="icon icon-shape bg-danger text-white rounded-circle shadow">
+                    <i class="fas fa-question-circle"></i>
+                  </div>
+                </div>
+              </div>
+              <p class="mt-3 mb-0 text-muted text-sm">
+                Uma única doação de sangue pode salvar até três vidas. O sangue doado é separado em componentes, como glóbulos vermelhos, plaquetas e plasma.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-3 col-lg-6">
+          <div class="card card-stats mb-4 mb-xl-0">
+            <div class="card-body">
+              <div class="row">
+                <div class="col">
+                  <h5 class="card-title text-uppercase text-muted mb-0">Tipos Sanguíneos</h5>
+                </div>
+                <div class="col-auto">
+                  <div class="icon icon-shape bg-warning text-white rounded-circle shadow">
+                    <i class="fas fa-dna"></i>
+                  </div>
+                </div>
+              </div>
+              <p class="mt-3 mb-0 text-muted text-sm">
+                Os principais são A, B, AB e O. <br><br>
+                Cada tipo sanguíneo tem características diferentes e pode ser positivo (+) ou negativo (-). 
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-3 col-lg-6">
+          <div class="card card-stats mb-4 mb-xl-0">
+            <div class="card-body">
+              <div class="row">
+                <div class="col">
+                  <h5 class="card-title text-uppercase text-muted mb-0">Processo</h5>
+                </div>
+                <div class="col-auto">
+                  <div class="icon icon-shape bg-yellow text-white rounded-circle shadow">
+                    <i class="fas fa-users"></i>
+                  </div>
+                </div>
+              </div>
+              <p class="mt-3 mb-0 text-muted text-sm">
+                Contato com Centro de Doação <br><br> Triagem <br><br> Coleta!
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-3 col-lg-6">
+          <div class="card card-stats mb-4 mb-xl-0">
+            <div class="card-body">
+              <div class="row">
+                <div class="col">
+                  <h5 class="card-title text-uppercase text-muted mb-0">Intervalos de Doação</h5>
+                </div>
+                <div class="col-auto">
+                  <div class="icon icon-shape bg-info text-white rounded-circle shadow">
+                    <i class="fas fa-percent"></i>
+                  </div>
+                </div>
+              </div>
+              <p class="mt-3 mb-0 text-muted text-sm">
+                 Homens - 60 dias (máximo de 04 doações nos últimos 12 meses).<br><br>
+                 Mulheres - 90 dias (máximo de 03 doações nos últimos 12 meses).
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container-fluid mt--7">
+  <div class="row">
+    <div class="col-xl-8 mb-5 mb-xl-0">
+      <div class="card bg-gradient-default shadow">
+        <div class="card-header bg-transparent">
+          <div class="row align-items-center">
+            <div class="col">
+              <h6 class="text-uppercase text-light ls-1 mb-1">Incentive e participe nos mandando sua foto</h6>
+              <h2 class="text-white mb-0">Seja Sangue Bom</h2>
+            </div>
+            <div class="col">
+              <ul class="nav nav-pills justify-content-end">
+                <li class="nav-item" data-toggle="chart" data-target="#chart-sales"  (click)="data=datasets[1];updateOptions()">
+                  <a href="javascript:void(0)" class="nav-link py-2 px-3" [ngClass]="{'active':clicked1===true}" data-toggle="tab" (click)="clicked=false;clicked1=true">
+                    <span class="d-none d-md-block">Envie aqui</span>
+                    <span class="d-md-none">W</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <!-- Carrossel de imagens -->
+          <div class="chart">
+            <!-- Chart wrapper -->
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-xl-4">
+      <div class="card shadow mb-3">
+        <div class="card-header bg-transparent">
+          <div class="row align-items-center">
+            <div class="col">
+              <h6 class="text-uppercase text-muted ls-1 mb-1">Principais Requisitos</h6>
+              <h2 class="mb-0">O que é necessário para doar sangue?</h2>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <!-- Chart -->
+            <ul class="list-group">
+              <li class="list-group-item">Idade mínima de 16 anos (com consentimento dos pais ou responsável) ou 18 anos completos.</li>
+              <li class="list-group-item">Pesar no mínimo 50 kg.</li>
+              <li class="list-group-item">Estar em boas condições de saúde.</li>
+              <li class="list-group-item">Apresentar documento oficial com foto (RG, CNH etc.).</li>
+            </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row mt-5">
+    <div class="col-xl-4">
+      <div class="card shadow">
+        <div class="card-header border-0">
+          <div class="row align-items-center">
+            <div class="col">
+              <h6 class="text-uppercase text-muted ls-1 mb-1">Impeditivos Temporários</h6>
+              <h2 class="mb-0">O que pode adiar a sua doação?</h2>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <ul class="list-group">
+            <li class="list-group-item">Ter realizado procedimentos odontológicos invasivos (extrações dentárias, por exemplo) nos últimos 7 dias.</li>
+            <li class="list-group-item">Ter feito tatuagem ou piercing nos últimos 12 meses.</li>
+            <li class="list-group-item">Ter sido submetido a cirurgias ou transfusões nos últimos 12 meses.</li>
+            <li class="list-group-item">Ter tido febre nos últimos 7 dias.</li>
+            <li class="list-group-item">Ter tomado vacina recentemente (como a da gripe), dependendo do caso.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="col-xl-4">
+      <div class="card shadow">
+        <div class="card-header border-0">
+          <div class="row align-items-center">
+            <div class="col">
+              <h6 class="text-uppercase text-muted ls-1 mb-1">Impeditivos Permanentes</h6>
+              <h2 class="mb-0">O que pode impedir sua doação?</h2>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <ul class="list-group">
+            <li class="list-group-item">Ter tido hepatite após os 11 anos de idade.</li>
+            <li class="list-group-item">Ter sido diagnosticado com doença de Chagas.</li>
+            <li class="list-group-item">Ter tido malária ou sífilis.</li>
+            <li class="list-group-item">Ter feito uso de drogas injetáveis ilícitas.</li>
+            <li class="list-group-item">Ter tido contato com o vírus HIV (AIDS).</li>
+            <li class="list-group-item">Ter tido acidente vascular cerebral (AVC) ou infarto.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="col-xl-4">
+      <div class="card shadow">
+        <div class="card-header border-0">
+          <div class="row align-items-center">
+            <div class="col">
+              <h6 class="text-uppercase text-muted ls-1 mb-1">Outras informações e Links Rápidos</h6>
+              <h2 class="mb-0">Saiba Mais</h2>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <ul class="list-group">
+            <li class="list-group-item">
+              <a href="https://www.who.int/news-room/fact-sheets/detail/blood-safety-and-availability" ngbTooltip="Clique e vá para o site" target="_blank">Segurança e disponibilidade de sangue - OMS</a>
+            </li>
+            <li class="list-group-item">
+              <a href="https://www.saude.gov.br/saude-de-a-z/doacao-de-sangue" target="_blank">Ministério da Saúde - Doação de Sangue</a>
+            </li>
+            <li class="list-group-item">
+              <a href="https://www.who.int/news-room/fact-sheets/detail/blood-safety-and-availability" target="_blank">Requisitos para doação de sangue - Anvisa</a>
+            </li>
+            <li class="list-group-item">
+              <a href="https://www.prosangue.sp.gov.br/doacao/saiba-se-voce-pode-doar-sangue" target="_blank">Saiba se você pode doar sangue - Pro-Sangue</a>
+            </li>
+            <li class="list-group-item">
+              <a href="https://www.saude.gov.br/saude-de-a-z/doacao-de-sangue" target="_blank">Dúvidas frequentes sobre doação de sangue - Ministério da Saúde</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
