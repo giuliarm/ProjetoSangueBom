@@ -1,13 +1,15 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
 import firebase from 'firebase/compat/app';
+import { UserData } from '../components/models/userModel';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  constructor(private afAuth: AngularFireAuth) { }
+  constructor(private afAuth: AngularFireAuth, private firestore: AngularFirestore) { }
 
  
   public async loginWithGoogle() {
@@ -15,12 +17,15 @@ export class AuthService {
       const provider = new firebase.auth.GoogleAuthProvider();
       const credential = await this.afAuth.signInWithPopup(provider);
       const user = credential.user;
-      console.log('UID do usuário:', user.uid);
-      console.log('Email do usuário:', user.email);
-      console.log('Nome de exibição do usuário:', user.displayName);
-      console.log('URL da foto do usuário:', user.photoURL);
-      console.log('Número de telefone do usuário:', user.phoneNumber);
-      console.log('Identificador do provedor de autenticação:', user.providerId);
+
+      localStorage.setItem("userID", user.uid);
+
+      let usuario = await this.firestore.collection('users').doc(user.uid).set({
+        nome: user.displayName,
+        email: user.email
+      });  
+      console.log(usuario);
+      
     } catch (error) {
       console.error('Erro ao fazer login com o Google:', error);
     }
@@ -31,12 +36,13 @@ export class AuthService {
     try {
       const credential = await this.afAuth.signInWithEmailAndPassword(email, password);
       const user = credential.user;
-      console.log('UID do usuário:', user.uid);
-      console.log('Email do usuário:', user.email);
-      console.log('Nome de exibição do usuário:', user.displayName);
-      console.log('URL da foto do usuário:', user.photoURL);
-      console.log('Número de telefone do usuário:', user.phoneNumber);
-      console.log('Identificador do provedor de autenticação:', user.providerId);
+
+      localStorage.setItem("userID", user.uid);
+
+     
+
+      
+
     } catch (error) {
       console.error('Erro ao fazer login com email e senha:', error);
     }
@@ -46,9 +52,28 @@ export class AuthService {
   public async logout() {
     try {
       await this.afAuth.signOut();
-      console.log('Usuário desconectado com sucesso');
+      localStorage.removeItem('userID')
     } catch (error) {
       console.error('Erro ao fazer logout:', error);
     }
+  }
+
+
+  public async RegisterEmail(userData: UserData){
+    try {
+      const credential = await this.afAuth.createUserWithEmailAndPassword(userData.email, userData.password);
+      const user = credential.user;
+
+      let usuario = await this.firestore.collection('users').doc(user.uid).set({
+        nome: userData.nome,
+        email: userData.email,
+        dataNascimento: userData.dataNascimento,
+        genero: userData.genero
+      }); 
+     console.log(usuario);
+
+    } catch (error) {
+      console.error('Erro ao fazer login com email e senha:', error);
+    } 
   }
 }
