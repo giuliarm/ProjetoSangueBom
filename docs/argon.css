@@ -40,7 +40,7 @@
     --danger: #a83434;
     --light: #adb5bd;
     --dark: #212529;
-    --default: #172b4d;
+    --default: #85311c;
     --white: #fff;
     --neutral: #fff;
     --darker: black;
@@ -101,7 +101,7 @@ body
 
     text-align: left;
 
-    color: #525f7f;
+    color: #4d2217;
     background-color: #f8f9fe;
 }
 
@@ -228,7 +228,7 @@ a
 {
     text-decoration: none;
 
-    color: #5e72e4;
+    color: #e4675e;
     background-color: transparent;
 
     -webkit-text-decoration-skip: objects;
@@ -237,7 +237,7 @@ a:hover
 {
     text-decoration: none;
 
-    color: #233dd2;
+    color: #f0c7b9;
 }
 
 a:not([href]):not([tabindex])
@@ -8029,9 +8029,9 @@ button.bg-dark:focus
     background-color: #0a0c0d !important;
 }
 
-.bg-default
-{
-    background-color: #172b4d !important;
+
+.bg-default {
+    background-color: #990e2a !important;
 }
 
 a.bg-default:hover,
@@ -15087,7 +15087,7 @@ button.bg-lighter:focus
 
 .bg-gradient-default
 {
-    background: linear-gradient(87deg, #172b4d 0, #1a174d 100%) !important;
+    background: linear-gradient(87deg, #4d2217 0, #1a174d 100%) !important;
 }
 
 .bg-gradient-white
@@ -15543,12 +15543,12 @@ button.section-darker:focus
 
 .fill-default
 {
-    fill: #172b4d;
+    fill: #86301af5;
 }
 
 .stroke-default
 {
-    stroke: #172b4d;
+    stroke: #86301af5;
 }
 
 .fill-white
