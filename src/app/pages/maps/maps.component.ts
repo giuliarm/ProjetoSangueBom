@@ -1,6 +1,6 @@
 import { Component, OnInit, Inject, Injectable, AfterViewInit } from '@angular/core';
 import { GeocodeService } from 'src/app/services/geocodeService';
-import { Utils } from 'src/app/utils/Utils';
+import { Utils } from 'src/app/utils/functions/Utils';
 
 import { DOCUMENT } from '@angular/common';
 

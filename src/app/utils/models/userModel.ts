@@ -7,6 +7,7 @@ export interface UserData{
     password: string;
     dataNascimento: Date;
     genero: GeneroEnum;
+    jaDoador: boolean;
 }
 
 export interface UserPhoto{

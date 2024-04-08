@@ -1,1 +1,10 @@
-/* You can add global styles to this file, and also import other style files */
+ngb-modal-backdrop{
+    z-index: 0 !important;
+}
+.btn-danger
+{
+    color: #fff;
+    border-color: #a83434;
+    background-color: #daa8a8;
+    box-shadow: 0 4px 6px rgba(50, 50, 93, .11), 0 1px 3px rgba(0, 0, 0, .08);
+}

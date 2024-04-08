@@ -1,0 +1,35 @@
+<div class="modal-header">
+    <h4 class="modal-title">Formulário de Doação</h4>
+    <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss()">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<div class="modal-body">
+    <form role="form" (ngSubmit)="onSubmit()" [formGroup]="donationForm">
+        <div class="form-group">
+            <label for="centroDoacao">Local de Doação:</label>
+            <input type="text" id="centroDoacao" class="form-control" placeholder="Local de Doação" formControlName="centroDoacao" required />
+            <div *ngIf="donationForm.get('centroDoacao').invalid && (donationForm.get('centroDoacao').dirty || donationForm.get('centroDoacao').touched)" class="error-message">
+                Local de doação é obrigatório
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="dataDoacao">Data de Doação:</label>
+            <input type="date" id="dataDoacao" class="form-control" placeholder="Data de Doação" formControlName="dataDoacao" required />
+            <div *ngIf="donationForm.get('dataDoacao').invalid && (donationForm.get('dataDoacao').dirty || donationForm.get('dataDoacao').touched)" class="error-message">
+                Data de doação é obrigatória
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="foto">Foto:</label>
+            <input type="file" id="foto" class="form-control" placeholder="Foto" formControlName="foto" accept="image/*" required (change)="onFileSelected($event)" />
+            <div *ngIf="donationForm.get('foto').invalid && (donationForm.get('foto').dirty || donationForm.get('foto').touched)" class="error-message">
+                Foto é obrigatória
+            </div>
+        </div>
+    </form>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-warning" (click)="activeModal.dismiss()">Cancelar</button>
+    <button type="submit" class="btn btn-danger" [disabled]="donationForm.invalid">Enviar</button>
+</div>

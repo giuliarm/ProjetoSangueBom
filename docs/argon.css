@@ -3174,8 +3174,8 @@ fieldset:disabled a.btn
 .btn-danger
 {
     color: #fff;
-    border-color: #f5365c;
-    background-color: #f5365c;
+    border-color: #a83434;
+    background-color: #daa8a8;
     box-shadow: 0 4px 6px rgba(50, 50, 93, .11), 0 1px 3px rgba(0, 0, 0, .08);
 }
 .btn-danger:hover
@@ -7112,7 +7112,7 @@ button.close
 .modal-backdrop
 {
     position: fixed;
-    z-index: 1040;
+    z-index: 0;
     top: 0;
     right: 0;
     bottom: 0;

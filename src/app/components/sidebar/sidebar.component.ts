@@ -13,9 +13,9 @@ interface RouteInfo {
 export const ROUTES: RouteInfo[] = [
   { path: '/home', title: 'Projeto Sangue Bom',  icon: 'ni-favourite-28 text-red', class: '' },
   { path: '/maps', title: 'Onde Doar',  icon:'ni-pin-3 text-orange', class: '' },
-  { path: '/user-profile', title: 'User profile',  icon:'ni-single-02 text-yellow', class: '', logged: true },
+  { path: '/user-profile', title: 'Perfil',  icon:'ni-single-02 text-yellow', class: '', logged: true },
   { path: '/login', title: 'Login',  icon:'ni-key-25 text-info', class: '', logged: false },
-  { path: '/register', title: 'Register',  icon:'ni-circle-08 text-pink', class: '', logged: false }
+  { path: '/register', title: 'Cadastro',  icon:'ni-circle-08 text-pink', class: '', logged: false }
 ];
 
 @Component({

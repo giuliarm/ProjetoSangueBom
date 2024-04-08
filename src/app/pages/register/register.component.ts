@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { routes } from 'src/app/app.routing';
-import { GeneroEnum } from 'src/app/components/enum/generoEnum';
-import { UserData } from 'src/app/components/models/userModel';
+import { GeneroEnum } from 'src/app/utils/enum/generoEnum';
+import { UserData } from 'src/app/utils/models/userModel';
 import { AuthService } from 'src/app/services/authService';
 
 @Component({
@@ -12,7 +12,7 @@ import { AuthService } from 'src/app/services/authService';
 })
 export class RegisterComponent implements OnInit {
 
-  user: UserData = { nome: '', email: '', password: '', dataNascimento: null, genero: null };
+  user: UserData = { nome: '', email: '', password: '', dataNascimento: null, genero: null, jaDoador: false };
 
   constructor(private authService: AuthService) { }
 
@@ -29,7 +29,7 @@ export class RegisterComponent implements OnInit {
   register(user: UserData){
     console.log(user)
     this.authService.RegisterEmail(user).then(u => {
-
+      console.log(user);
     })
   }
 }
