@@ -1,15 +1,15 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Router } from '@angular/router';
-import { AuthService } from 'src/app/services/authService';
+import { Component, OnInit, OnDestroy } from "@angular/core";
+import { Router } from "@angular/router";
+import { AuthService } from "src/app/services/authService";
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  selector: "app-login",
+  templateUrl: "./login.component.html",
+  styleUrls: ["./login.component.scss"],
 })
 export class LoginComponent implements OnInit, OnDestroy {
-  email: string = '';
-  password: string = '';
+  email: string = "";
+  password: string = "";
 
   constructor(private authService: AuthService, private router: Router) {}
 
@@ -18,17 +18,24 @@ export class LoginComponent implements OnInit, OnDestroy {
   ngOnDestroy() {}
 
   loginWithGoogle() {
-    this.authService.loginWithGoogle().then(user => {
-      this.router.navigate(['/home']); 
-    }).catch(error => {
-      console.error('Erro ao fazer login com o Google:', error);
-    });
+    this.authService
+      .loginWithGoogle()
+      .then((user) => {
+        this.router.navigate(["/home"]);
+      })
+      .catch((error) => {
+        console.error("Erro ao fazer login com o Google:", error);
+      });
   }
 
   loginWithEmail() {
-    this.authService.loginWithEmail(this.email, this.password).then(user => {
-    }).catch(error => {
-      console.error('Erro ao fazer login com email e senha:', error);
-    });
+    this.authService
+      .loginWithEmail(this.email, this.password)
+      .then((user) => {
+        this.router.navigate(["/home"]);
+      })
+      .catch((error) => {
+        console.error("Erro ao fazer login com email e senha:", error);
+      });
   }
 }

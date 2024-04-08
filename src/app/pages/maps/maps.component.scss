@@ -1,17 +1,15 @@
-.bg-gradient-danger
-{
-    background: linear-gradient(87deg, #a83434 0, #daa8a8 100%) !important;
+.bg-gradient-danger {
+  background: linear-gradient(87deg, #a83434 0, #daa8a8 100%) !important;
 }
 
-.bg-danger
-{
-    background-color: #a83434 !important;
+.bg-danger {
+  background-color: #a83434 !important;
 }
 
-.row{
-    flex-wrap: wrap-reverse;
-
-    }
+.row {
+  flex-wrap: wrap;
+  gap: 20px;
+}
 .form-inline {
-    display: block;
+  display: block;
 }
