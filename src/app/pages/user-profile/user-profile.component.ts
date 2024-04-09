@@ -32,6 +32,8 @@ export class UserProfileComponent implements OnInit {
     let date = new Date(this.user.dataNascimento).toLocaleDateString();
     this.user.idade = differenceInYears(new Date(), date);
 
+    localStorage.setItem("userAge", this.user.idade);
+
     console.log(this.user);
   }
 
@@ -41,7 +43,11 @@ export class UserProfileComponent implements OnInit {
   
 
   openDonationFormModal(){
-    this.modalService.open(DonationFormModalComponent, {size: 'md'})
+    if(this.user.idade && this.user.idade < 16){
+      alert('Você ainda não pode fazer uma doação, obrigada pelo interesse. Retorne assim que tiver os requisitos!')
+    }else{
+      this.modalService.open(DonationFormModalComponent, {size: 'md'})
+    }
   }
 }
 

@@ -25,7 +25,6 @@ export class DashboardComponent implements OnInit, AfterViewInit {
   ngOnInit() {
     this.checkIsLogged();
     this.loadDefaultImages();
-    this.isLogged = true;
     this.userAge = localStorage.getItem('userAge');
   }
 

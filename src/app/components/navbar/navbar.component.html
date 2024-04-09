@@ -1,4 +1,4 @@
-<nav *ngIf="isLogged" class="navbar navbar-top navbar-expand-md navbar-dark" id="navbar-main">
+<nav class="navbar navbar-top navbar-expand-md navbar-dark" id="navbar-main">
   <div class="container-fluid">
     <!-- Brand -->
     <a class="h4 mb-0 text-white text-uppercase d-none d-lg-inline-block" routerLinkActive="active"
@@ -21,16 +21,16 @@
           <div class=" dropdown-header noti-title">
             <h6 class="text-overflow m-0">Olá!</h6>
           </div>
-          <a routerLinkActive="active" [routerLink]="['/user-profile']" class="dropdown-item">
+          <a *ngIf="isLogged" routerLinkActive="active" [routerLink]="['/user-profile']" class="dropdown-item">
             <i class="ni ni-single-02"></i>
             <span>Perfil</span>
           </a>
-          <a routerLinkActive="active" [routerLink]="['/user-profile']" class="dropdown-item">
-            <i class="ni ni-settings-gear-65"></i>
+          <a routerLinkActive="active" [routerLink]="['/maps']" class="dropdown-item">
+            <i class="ni ni-square-pin"></i>
             <span>Onde doar</span>
           </a>
           <div class="dropdown-divider"></div>
-          <a href="#!" class="dropdown-item" (click)="logout()">
+          <a *ngIf="isLogged"  href="#!" class="dropdown-item" (click)="logout()">
             <i class="ni ni-user-run"></i>
             <span>Logout</span>
           </a>

@@ -57,6 +57,7 @@ export class NavbarComponent implements OnInit {
       .then(() => {
         alert("Você foi desconectado com sucesso!");
         window.location.reload();
+        this.router.navigate(["/home"]);
       })
       .catch((error) => {
         console.error("Erro ao fazer logout", error);

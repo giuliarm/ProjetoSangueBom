@@ -12,7 +12,7 @@
     <!-- User -->
     <ul class="nav align-items-center d-md-none">
 
-      <li class="nav-item" ngbDropdown placement="bottom-right">
+      <li  *ngIf="logged" class="nav-item" ngbDropdown placement="bottom-right">
         <a class="nav-link" role="button" ngbDropdownToggle>
           <div class="media align-items-center">
             <span class="avatar avatar-sm rounded-circle">
@@ -29,7 +29,7 @@
             <span>Perfil</span>
           </a>
           <a routerLinkActive="active" [routerLink]="['/maps']" class="dropdown-item">
-            <i class="ni ni-settings-gear-65"></i>
+            <i class="ni ni-square-pin"></i>
             <span>Onde doar</span>
           </a>
           <div class="dropdown-divider"></div>

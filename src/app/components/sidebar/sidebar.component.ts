@@ -59,6 +59,7 @@ export class SidebarComponent implements OnInit {
   constructor(private router: Router, private authService: AuthService) {}
 
   ngOnInit(): void {
+    this.logged = this.authService.getIsLogged();
     this.updateMenu();
     this.router.events.subscribe(() => {
       this.isCollapsed = true;
@@ -66,7 +67,7 @@ export class SidebarComponent implements OnInit {
   }
 
   private updateMenu(): void {
-    this.logged = this.authService.getIsLogged();
+    console.log(this.logged)
     this.menuItems = ROUTES.filter(
       (menuItem) =>
         menuItem.logged === undefined || menuItem.logged === this.logged
