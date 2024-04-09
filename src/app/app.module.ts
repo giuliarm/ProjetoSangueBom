@@ -21,7 +21,7 @@ import { ComponentsModule } from './components/components.module';
 import { GeocodeService } from './services/geocodeService';
 import { AuthService } from './services/authService';
 import { AppRoutingModule } from './app.routing';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule, NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -38,6 +38,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     AppRoutingModule,
     ComponentsModule,
     NgbModule,
+    NgbCarouselModule,
     AngularFireModule.initializeApp(environment.firebaseConfig), // Inicialize o AngularFire com a configuração do ambiente
     AngularFireAuthModule, // Importe o módulo de autenticação AngularFireAuthModule
     AngularFirestoreModule // Importe o módulo Firestore AngularFirestoreModule

@@ -17,7 +17,7 @@
                 </div>
               </div>
               <p class="mt-3 mb-0 text-muted text-sm">
-                Uma única doação de sangue pode salvar até três vidas. O sangue doado é separado em componentes, como glóbulos vermelhos, plaquetas e plasma.
+                Uma única doação de sangue pode salvar até quatro vidas. O sangue doado é separado em componentes, como glóbulos vermelhos, plaquetas e plasma.
               </p>
             </div>
           </div>
@@ -51,7 +51,7 @@
                 </div>
                 <div class="col-auto">
                   <div class="icon icon-shape bg-yellow text-white rounded-circle shadow">
-                    <i class="fas fa-users"></i>
+                    <i class="fas fa-project-diagram"></i>
                   </div>
                 </div>
               </div>
@@ -70,7 +70,7 @@
                 </div>
                 <div class="col-auto">
                   <div class="icon icon-shape bg-info text-white rounded-circle shadow">
-                    <i class="fas fa-percent"></i>
+                    <i class="fas fa-user-clock"></i>
                   </div>
                 </div>
               </div>
@@ -95,12 +95,12 @@
               <h6 class="text-uppercase text-light ls-1 mb-1">Incentive e participe nos mandando sua foto</h6>
               <h2 class="text-white mb-0">Seja Sangue Bom</h2>
             </div>
-            <div class="col">
+            <div class="col" *ngIf="isLogged">
               <ul class="nav nav-pills justify-content-end">
-                <li class="nav-item" data-toggle="chart" data-target="#chart-sales"  (click)="data=datasets[1];updateOptions()">
-                  <a href="javascript:void(0)" class="nav-link py-2 px-3" [ngClass]="{'active':clicked1===true}" data-toggle="tab" (click)="clicked=false;clicked1=true">
-                    <span class="d-none d-md-block">Envie aqui</span>
-                    <span class="d-md-none">W</span>
+                <li class="nav-item">
+                  <a (click)="openDonationFormModal()" class="nav-link py-2 px-3">
+                    <span class="d-none d-md-block">Participe</span>
+                    <span class="d-md-none">Participe</span>
                   </a>
                 </li>
               </ul>
@@ -109,8 +109,26 @@
         </div>
         <div class="card-body">
           <!-- Carrossel de imagens -->
-          <div class="chart">
-            <!-- Chart wrapper -->
+          <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" #carousel>
+            <ol class="carousel-indicators">
+              <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+              <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+              <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner">
+              <div class="carousel-item active" *ngFor="let image of images; let i = index" [class.active]="i === 0">
+                <img class="d-block w-100" [src]="image.src" [alt]="image.alt">
+                <h6 class="text-uppercase text-light ls-1 mb-1">{{image.legenda}}</h6>
+              </div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </a>
           </div>
         </div>
       </div>
@@ -126,7 +144,6 @@
           </div>
         </div>
         <div class="card-body">
-          <!-- Chart -->
             <ul class="list-group">
               <li class="list-group-item">Idade mínima de 16 anos (com consentimento dos pais ou responsável) ou 18 anos completos.</li>
               <li class="list-group-item">Pesar no mínimo 50 kg.</li>

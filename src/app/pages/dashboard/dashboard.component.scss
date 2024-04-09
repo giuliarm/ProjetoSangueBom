@@ -1,26 +1,33 @@
-.bg-gradient-danger
-{
-    background: linear-gradient(87deg, #a83434 0, #daa8a8 100%) !important;
+.bg-gradient-danger {
+  background: linear-gradient(87deg, #a83434 0, #daa8a8 100%) !important;
 }
 
-.bg-danger
-{
-    background-color: #a83434 !important;
+.bg-danger {
+  background-color: #a83434 !important;
 }
-.bg-warning{
-    background-color: #b65555 !important;
+.bg-warning {
+  background-color: #b65555 !important;
 }
-.bg-yellow{
-    background-color: #c57878 !important;
+.bg-yellow {
+  background-color: #c57878 !important;
 }
-.bg-info{
-    background-color: #ce8d8d !important;
+.bg-info {
+  background-color: #ce8d8d !important;
 }
 
-.card.bg-gradient-default.shadow{
-    background: linear-gradient(87deg, #b14949 0, #d8a4a4 100%) !important;
+.card.bg-gradient-default.shadow {
+  background: linear-gradient(87deg, #d8a4a4 0, #b14949 100%) !important;
+  border: none;
 }
 
 .card a {
-    color: #b65555; 
-  }
+  color: #b65555;
+  cursor: pointer;
+}
+
+.carousel-inner{
+  h6{
+    text-align: center;
+    padding-top: 15px;
+  }  
+}

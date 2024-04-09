@@ -44,7 +44,6 @@ export class DataService {
     try {
       const donationPhotos: any[] = [];
 
-      // Faz uma consulta para obter todas as fotos da subcoleção 'donations' de todos os usuários
       const querySnapshot = await this.firestore
         .collectionGroup("donations")
         .get()
