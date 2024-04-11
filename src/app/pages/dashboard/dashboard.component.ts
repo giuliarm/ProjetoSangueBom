@@ -60,10 +60,8 @@ export class DashboardComponent implements OnInit, AfterViewInit {
       (resposta) => {
         if (resposta && resposta.length > 0) {
           resposta.forEach((foto) => {
-            // Verificar se a imagem já não está na lista
             const existe = this.images.some(img => img.src === `data:image/jpeg;base64,${foto.foto}`);
             if (!existe) {
-              // Adicionar a foto ao array de imagens
               this.images.push({
                 src: `data:image/jpeg;base64,${foto.foto}`,
                 legenda: foto.centroDoacao,

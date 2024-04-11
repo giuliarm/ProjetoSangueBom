@@ -29,7 +29,6 @@ export class DataService {
         return;
       }
 
-      // Adiciona o objeto UserPhoto à subcoleção 'donations'
       await this.firestore
         .collection("users")
         .doc(tempUID)
@@ -49,9 +48,7 @@ export class DataService {
         .get()
         .toPromise();
 
-      // Itera sobre os documentos retornados
       querySnapshot.forEach((doc) => {
-        // Adiciona os dados do documento à lista de fotos de doação
         donationPhotos.push(doc.data());
       });
 

@@ -8,12 +8,10 @@ import { provideFirebaseApp, initializeApp, FirebaseApp } from '@angular/fire/ap
 import { provideAuth, Auth, getAuth } from '@angular/fire/auth';
 import { environment } from '../environments/environment';
 
-// Importe os módulos do AngularFire necessários
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
-import { AngularFirestoreModule } from '@angular/fire/compat/firestore'; // Importe o módulo Firestore
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore'; 
 
-// Importe os componentes e serviços necessários
 import { AppComponent } from './app.component';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component';
@@ -40,9 +38,9 @@ import { NgbModule, NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
     ComponentsModule,
     NgbModule,
     NgbCarouselModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig), // Inicialize o AngularFire com a configuração do ambiente
-    AngularFireAuthModule, // Importe o módulo de autenticação AngularFireAuthModule
-    AngularFirestoreModule // Importe o módulo Firestore AngularFirestoreModule
+    AngularFireModule.initializeApp(environment.firebaseConfig), 
+    AngularFireAuthModule, 
+    AngularFirestoreModule 
   ],
   providers: [
     GeocodeService,

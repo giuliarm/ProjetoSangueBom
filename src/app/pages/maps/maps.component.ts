@@ -32,7 +32,7 @@ export class MapsComponent implements OnInit  {
     var myLatlng = new google.maps.LatLng(lat, lng);
     var mapOptions = {
         streetViewControl: false,
-        zoom: 12, // Ajuste o zoom conforme necessário
+        zoom: 12, 
         scrollwheel: false,
         center: myLatlng,
         mapTypeId: google.maps.MapTypeId.ROADMAP,
