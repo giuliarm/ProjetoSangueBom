@@ -84,7 +84,11 @@ export class AuthService {
         genero: userData.genero,
       });
       console.log(usuario);
+
+      this.setIsLogged(true);
+    
     } catch (error) {
+      throw(error)
       console.error("Erro ao fazer login com email e senha:", error);
     }
   }

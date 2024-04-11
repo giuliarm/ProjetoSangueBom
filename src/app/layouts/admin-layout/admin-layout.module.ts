@@ -23,7 +23,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     HttpClientModule,
     NgbModule,
     ClipboardModule,
-    GoogleMapsModule
+    GoogleMapsModule,
+    ReactiveFormsModule 
   ],
   declarations: [
     DashboardComponent,

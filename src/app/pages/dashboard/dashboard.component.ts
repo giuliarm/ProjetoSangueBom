@@ -1,6 +1,7 @@
 import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from "@angular/core";
 import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
-import { DonationFormModalComponent } from "src/app/components/modal/donation-form-modal.component";
+import { DonationFormModalComponent } from "src/app/components/modal/donation-form/donation-form-modal.component";
+import { WaitDonationFormModalComponent } from "src/app/components/modal/wait-donation-form/wait-donation-form-modal.component";
 import { AuthService } from "src/app/services/authService";
 import { DataService } from "src/app/services/dataService";
 
@@ -42,7 +43,7 @@ export class DashboardComponent implements OnInit, AfterViewInit {
     if(this.userAge && this.userAge < 16){
       alert('Você ainda não pode fazer uma doação, obrigada pelo interesse. Retorne assim que tiver os requisitos!')
     }else{
-      this.modalService.open(DonationFormModalComponent, {size: 'md'})
+      this.modalService.open(WaitDonationFormModalComponent, {size: 'md'})
     }  }
 
   loadDefaultImages(): void {

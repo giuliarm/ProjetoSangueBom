@@ -5,7 +5,7 @@
       [routerLink]="['/home']">{{getTitle()}}</a>
 
     <!-- User -->
-    <ul class="navbar-nav align-items-center d-none d-md-flex">
+    <ul *ngIf="isLogged" class="navbar-nav align-items-center d-none d-md-flex">
       <li class="nav-item" ngbDropdown placement="bottom-right">
         <a class="nav-link pr-0" role="button" ngbDropdownToggle>
           <div class="media align-items-center">
@@ -21,7 +21,7 @@
           <div class=" dropdown-header noti-title">
             <h6 class="text-overflow m-0">Olá!</h6>
           </div>
-          <a *ngIf="isLogged" routerLinkActive="active" [routerLink]="['/user-profile']" class="dropdown-item">
+          <a routerLinkActive="active" [routerLink]="['/user-profile']" class="dropdown-item">
             <i class="ni ni-single-02"></i>
             <span>Perfil</span>
           </a>
@@ -30,7 +30,7 @@
             <span>Onde doar</span>
           </a>
           <div class="dropdown-divider"></div>
-          <a *ngIf="isLogged"  href="#!" class="dropdown-item" (click)="logout()">
+          <a   href="#!" class="dropdown-item" (click)="logout()">
             <i class="ni ni-user-run"></i>
             <span>Logout</span>
           </a>

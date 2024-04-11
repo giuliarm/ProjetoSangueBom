@@ -36,67 +36,74 @@
           </div>
           <form role="form" (ngSubmit)="register(user)">
             <div class="form-group">
+              <label for="nome"><i class="fas fa-user"></i> Nome:</label>
               <div class="input-group input-group-alternative mb-3">
                 <div class="input-group-prepend">
-                  <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
+                  <span class="input-group-text"><i class="fas fa-user"></i></span>
                 </div>
-                <input class="form-control" placeholder="Nome" type="text" [(ngModel)]="user.nome" name="nome">
+                <input class="form-control" placeholder="Nome" type="text" [(ngModel)]="user.nome" name="nome" id="nome">
               </div>
             </div>
             <div class="form-group">
+              <label for="email"><i class="fas fa-envelope"></i> Email:</label>
               <div class="input-group input-group-alternative mb-3">
                 <div class="input-group-prepend">
-                  <span class="input-group-text"><i class="ni ni-email-83"></i></span>
+                  <span class="input-group-text"><i class="fas fa-envelope"></i></span>
                 </div>
-                <input class="form-control" placeholder="Email" type="email" [(ngModel)]="user.email" name="email">
+                <input class="form-control" placeholder="Email" type="email" [(ngModel)]="user.email" name="email" id="email">
               </div>
             </div>
             <div class="form-group">
+              <label for="dataNascimento"><i class="fas fa-calendar"></i> Data de Nascimento:</label>
               <div class="input-group input-group-alternative mb-3">
                 <div class="input-group-prepend">
-                  <span class="input-group-text"><i class="ni ni-email-83"></i></span>
+                  <span class="input-group-text"><i class="fas fa-calendar"></i></span>
                 </div>
-                <input class="form-control" placeholder="Data de Nascimento" type="date" [(ngModel)]="user.dataNascimento" name="dataNascimento">
+                <input class="form-control" placeholder="Data de Nascimento" type="date" [(ngModel)]="user.dataNascimento" name="dataNascimento" id="dataNascimento">
               </div>
             </div>
             <div class="form-group">
+              <label for="genero"><i class="fas fa-venus-mars"></i> Gênero:</label>
               <div class="input-group input-group-alternative">
-             
-                  <div class="input-group-prepend">
-                    <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
-                  </div>
-                  <select class="form-control" [(ngModel)]="user.genero" name="genero">
-                    <option value="" selected >Selecione o gênero</option>
-                    <option value="feminino">Feminino</option>
-                    <option value="masculino">Masculino</option>
-                    <option value="naoBinario">Não Binário</option>
-                    <option value="outro">Outro / Prefiro não declarar</option>
-                  </select>
-                              
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="fas fa-venus-mars"></i></span>
+                </div>
+                <select class="form-control" [(ngModel)]="user.genero" name="genero" id="genero">
+                  <option value="" selected>Selecione o gênero</option>
+                  <option value="feminino">Feminino</option>
+                  <option value="masculino">Masculino</option>
+                  <option value="naoBinario">Não Binário</option>
+                  <option value="outro">Outro / Prefiro não declarar</option>
+                </select>
               </div>
             </div>      
             <div class="form-group">
+              <label for="jaDoador"><i class="fas fa-hand-holding-heart"></i> Já doou sangue alguma vez?</label>
               <div class="input-group input-group-alternative">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
-                  </div>
-                  <select class="form-control" [(ngModel)]="user.jaDoador" name="jaDoador">
-                    <option value="" selected >Já doou sangue alguma vez?</option>
-                    <option value=true>Sim</option>
-                    <option value=false>Não</option>
-                  </select>              
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="fas fa-hand-holding-heart"></i></span>
+                </div>
+                <select class="form-control" [(ngModel)]="user.jaDoador" name="jaDoador" id="jaDoador">
+                  <option value="" selected>Já doou sangue alguma vez?</option>
+                  <option value=true>Sim</option>
+                  <option value=false>Não</option>
+                </select>
               </div>
             </div>  
             <div class="form-group">
+              <label for="senha"><i class="fas fa-lock"></i> Senha:</label>
               <div class="input-group input-group-alternative">
-                <div class="input-group-prepend">
-                  <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
-                </div>
-                <input class="form-control" placeholder="Senha" type="password" [(ngModel)]="user.password" name="password">
+                  <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="fas fa-lock"></i></span>
+                  </div>
+                  <input class="form-control" placeholder="Senha" type="password" [(ngModel)]="user.password" name="senha" id="senha" minlength="6">
               </div>
-            </div>
+              <div *ngIf="user.password.length < 6 && user.password.length > 0" class="error-message">
+                A senha deve ter no mínimo 6 caracteres.
+              </div>
+          </div>
             <div class="text-center">
-              <button type="submit" class="btn btn-primary mt-4">Criar cadastro</button>
+              <button type="submit" class="btn btn-primary mt-4" [disabled]="!user.email || !user.password || !user.nome">Criar cadastro</button>
             </div>
           </form>
         </div>

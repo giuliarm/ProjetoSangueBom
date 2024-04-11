@@ -3,8 +3,10 @@ import { UserData } from 'src/app/utils/models/userModel';
 import { DataService } from 'src/app/services/dataService';
 import { differenceInYears } from 'date-fns';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { DonationFormModalComponent } from 'src/app/components/modal/donation-form-modal.component';
+import { DonationFormModalComponent } from 'src/app/components/modal/donation-form/donation-form-modal.component';
 import { GeneroEnum } from 'src/app/utils/enum/generoEnum';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { WaitDonationFormModalComponent } from 'src/app/components/modal/wait-donation-form/wait-donation-form-modal.component';
 
 @Component({
   selector: 'app-user-profile',
@@ -15,9 +17,10 @@ export class UserProfileComponent implements OnInit {
 
   user: any;
   userIdade: number;
-  
+  profileForm: FormGroup;
 
-  constructor(private dataService: DataService, private modalService: NgbModal) { }
+
+  constructor(private dataService: DataService, private modalService: NgbModal, private formBuilder: FormBuilder ) { }
 
    ngOnInit() {
     this.getUserInfo();
@@ -35,10 +38,23 @@ export class UserProfileComponent implements OnInit {
     localStorage.setItem("userAge", this.user.idade);
 
     console.log(this.user);
+
+    this.initForm();
+  }
+
+  initForm(){
+    this.profileForm = this.formBuilder.group({
+      nome: [this.user.nome, Validators.required],
+      email: [this.user.email, [Validators.required, Validators.email]],
+      dataNascimento: [this.user.dataNascimento, Validators.required],
+      genero: [this.user.genero, Validators.required],
+      jaDoador: [this.user.jaDoador],
+      idade: [this.user.idade]
+    });
   }
 
   updateUserInfo(){
-    //incluir validação dos dados antes da atualização
+    //incluir validação dos dados antes da atualização, não será utilizado de inicio
   }
   
 
@@ -46,7 +62,7 @@ export class UserProfileComponent implements OnInit {
     if(this.user.idade && this.user.idade < 16){
       alert('Você ainda não pode fazer uma doação, obrigada pelo interesse. Retorne assim que tiver os requisitos!')
     }else{
-      this.modalService.open(DonationFormModalComponent, {size: 'md'})
+      this.modalService.open(WaitDonationFormModalComponent, {size: 'md'})
     }
   }
 }

@@ -1,7 +1,5 @@
 <div class="header pb-8 pt-5 pt-lg-8 d-flex align-items-center" style="min-height: 600px; background-image: url(assets/img/theme/profile-cover.jpg); background-size: cover; background-position: center top;">
-  <!-- Mask -->
   <span class="mask bg-gradient-danger opacity-8"></span>
-  <!-- Header container -->
   <div class="container-fluid d-flex align-items-center">
     <div class="row">
       <div class="col-lg-7 col-md-10">
@@ -33,7 +31,7 @@
             <div class="col">
               <div class="card-profile-stats d-flex justify-content-center mt-md-5">
                 <div>
-                  <span class="heading"> {{user?.nome}}</span>
+                  <span class="heading">{{user?.nome}}</span>
                   <span class="description">{{  user?.jaDoador ? 'Doador' : 'Futuro Doador' }}</span>
                 </div>
               </div>
@@ -59,47 +57,48 @@
             </div>
           </div>
         </div>
-        <div class="card-body">
-          <form>
+        <div class="card-body" *ngIf="user">
+          <form (ngSubmit)="updateUserInfo()">
             <h6 class="heading-small text-muted mb-4">Meus dados</h6>
             <div class="pl-lg-4">
               <div class="row">
                 <div class="col-lg-6">
                   <div class="form-group">
                     <label class="form-control-label" for="input-username">Nome</label>
-                    <input type="text" id="input-username" class="form-control form-control-alternative" placeholder="Nome" value="{{user?.nome}}">
+                    <input type="text" id="input-username" class="form-control form-control-alternative" placeholder="Nome" name="nome" [(ngModel)]="user.nome" required>
                   </div>
                 </div>
                 <div class="col-lg-6">
                   <div class="form-group">
                     <label class="form-control-label" for="input-email">Email</label>
-                    <input type="email" id="input-email" class="form-control form-control-alternative" value="{{user?.email}}">
+                    <input type="email" id="input-email" class="form-control form-control-alternative" placeholder="Email" name="email" [(ngModel)]="user.email" required>
                   </div>
                 </div>
               </div>
-              <div class="row">
+              <div class="row" *ngIf="user.dataNascimento">
                 <div class="col-lg-6">
                   <div class="form-group">
                     <label class="form-control-label" for="input-first-name">Data de nascimento</label>
-                    <input type="date" id="input-first-name" class="form-control form-control-alternative" placeholder="Data de nascimento" value="{{user?.dataNascimento}}">
+                    <input type="date" id="input-first-name" class="form-control form-control-alternative" placeholder="Data de nascimento" name="dataNascimento" [(ngModel)]="user.dataNascimento" required>
                   </div>
                 </div>
                 <div class="col-lg-6">
                   <div class="form-group">
-                      <!-- Alinhar descrição com Enum de Genero -->
                     <label class="form-control-label" for="input-last-name">Gênero</label>
-                    <select class="form-control"name="genero">
-                      <option value="{{user?.genero}}" selected >Selecione o gênero</option>
+                    <select class="form-control" name="genero" [(ngModel)]="user.genero" required>
+                      <option value="" disabled selected>Selecione o gênero</option>
                       <option value="feminino">Feminino</option>
                       <option value="masculino">Masculino</option>
                       <option value="naoBinario">Não Binário</option>
                       <option value="outro">Outro / Prefiro não declarar</option>
-                    </select>                  </div>
+                    </select>
+                  </div>
                 </div>
               </div>
-              <button type="submit" class="btn btn-danger my-4" disabled>Atualizar dados</button>
-            </div>            
+             <!--  <button type="submit" class="btn btn-danger my-4">Atualizar dados</button> -->
+            </div>
           </form>
+          
           <hr class="my-4" />
           <h6 class="heading-small text-muted mb-4">Enviar foto com comprovante de doação</h6>
           <div class="col-lg-12">
