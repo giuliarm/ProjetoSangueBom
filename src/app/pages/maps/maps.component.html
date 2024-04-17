@@ -12,7 +12,7 @@
                   <span class="input-group-text"><i class="fas fa-search"></i></span>
                 </div>
                 <input class="form-control" placeholder="Cidade para locarlizarmos o Centro de Doação mais próximo"
-                  type="text" (focus)="focus = true" (blur)="submitSearch()" [(ngModel)]="searchTerm" name="searchTerm">
+                  type="text" (focus)="focus = true" (blur)="focus = false" [(ngModel)]="searchTerm" name="searchTerm">
               </div>
             </div>
           </form>
